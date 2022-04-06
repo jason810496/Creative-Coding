@@ -21,7 +21,7 @@ function setup() {
 	
 	/*  create people */
 
-    var Myself = new People( random(width/2-100 , width/2+100) , random(height/2+200 , height/2+300) );
+    var Myself = new People( random(width/2-100 , width/2+100) , random(height/2+100 , height/2+200) );
     Myself.Create()
 
     push()
@@ -112,15 +112,17 @@ class People{
 	}
 
     CreatePants(){
-        translate(0,-this.leg.h)
-        let pant_len = this.leg.h* (random(0,1) > 0.5 ? 0.45: 0.8 )
-        let pant_ww = random(50,60)
+        translate(-this.Feet_span/2,-this.leg.h)
+        let pant_len = this.leg.h* (random(0,1) > 0.5 ? 0.45: 0.95 )
+        let pant_ww = random(30,40)
         let pant_D =random(1,1.2)
         let pant_color = GetColor(true)
-        let pant_L = new CUBE(this.xx-this.Feet_span , this.yy , pant_ww,pant_len,pant_D , pant_color)
+        let pant_L = new CUBE(this.xx-this.Feet_span , this.yy+pant_len , pant_ww,pant_len,pant_D , pant_color)
         pant_L.Create()
-        let pant_R = new CUBE(this.xx-this.Feet_span , this.yy , pant_ww,pant_len,pant_D, pant_color)
+        let pant_R = new CUBE(this.xx+this.Feet_span , this.yy+pant_len , pant_ww,pant_len,pant_D, pant_color)
         pant_R.Create()
+        let pant_M = new CUBE(this.xx-pant_ww, this.yy , pant_ww+2*this.Feet_span,random(40,50),pant_D, pant_color)
+        pant_M.Create()
     }
 	
 	Create(){
