@@ -8,7 +8,7 @@ var RandomHeightList = [];
 var RandomStrokeList = [];
 
 var BubbleList = [];
-var BubbleColorList = "a6f2dd-a4d3f0-a4a6f6-bea6ee-c58df4".split("-").map(a=>"#"+a);
+var BubbleColorList = [];
 
 function setup() {
   createCanvas(800, 800);
@@ -34,7 +34,7 @@ function setup() {
 		RandomColorList.push( c) 
 	}
 	for(let i=0;i<Total;i++){
-		RandomPosList.push( [ width/2 + map(i,0,Total-1,-50,50), random(780,790) ]) 
+		RandomPosList.push( [ width/2 + map(i,0,Total-1,-50,50), 700 ]) 
 	}
 	
 	for(let i=0;i<Total;i++){
@@ -78,7 +78,7 @@ function setup() {
 function draw(){
 	push()
 	// setup
-		background(50)
+		background(200)
 		noFill()  
 	// create obj function 
 		for( let i=0 ; i<Total ;i++){
@@ -113,15 +113,10 @@ function CreateIthWave(ith){
 function DrawBubble(){
     noFill();
     for(let i=0;i<Total;i++){
-        drawingContext.shadowColor = color( 'white');
-        drawingContext.shadowBlur = 20;
-        drawingContext.shadowOffsetX = random(3,5);
-        drawingContext.shadowOffsetY = random(3,5);
-      
         let B = BubbleList[i];
         stroke(B.clr);
         strokeWeight(B.wt);
-        ellipse(B.x + cos(frameCount/50)*3 +noise(frameCount/100,i , i*i/100)*20,B.y + sin(frameCount/50)*3 +noise(1 , frameCount/50 , i*i/100)*20, B.size , B.size);
+        ellipse(B.x + cos(frameCount/10)*5 +random(-3,3),B.y + sin(frameCount/10)*5, B.size , B.size);
     }
 }
 
