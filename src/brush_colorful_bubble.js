@@ -1,46 +1,38 @@
 var Total;
+var Size;
 var ColorList = ['red', 'green' ,'blue' ]
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	background(0);
 	
-	// angleMode(DEGREES);
-	Total=30;
-	
-	// translate( width/2 , height/2 )
-	for(let i=0 ; i<Total;i++){
-		rotate(i*5)
-		Stick()
-	}
+	angleMode(DEGREES);
+	Total=20;
+	Size=3;
+	noFill();
 }
 
 function draw() {
-	translate( mouseX , mouseY )
+    
+	translate(mouseX, mouseY);
     blendMode(BLEND)
 	if (mouseIsPressed){
         blendMode(SCREEN)
-		let clr = color(random(ColorList))
-		clr.setAlpha(150 + noise(frameCount/10,frameCount)*10)
-		stroke( clr )
-		for(let i=0 ; i<Total;i++){
-			rotate( i*5+frameCount/10)
-			Stick(i)
-		}
+        Blossom()
 	}
 }
 
-function Stick(ith){
-	let clr = color(random(ColorList))
-	clr.setAlpha(150 + noise(frameCount/10,frameCount)*10)
-	stroke( clr )
-	
-	let len = (sin(ith/5 + noise(frameCount)*3 )*40+100)
-	beginShape()
-		strokeWeight( map(noise(frameCount/10 , frameCount/5) , 0, 1 ,10,30) )
-		for(var i=0; i<len; i++){
-			let deltaX = (noise(i/100, ith , frameCount/100)-0.5)*40
-			vertex( deltaX,i )
-		}
-	endShape()
+function Blossom(){
+  for(let i=0 ;i < Total ;i++){
+    let clr = color(random(ColorList))
+    clr.setAlpha(30 + (noise(frameCount/10,frameCount)-0.5)*20)
+    stroke( clr )
+    strokeWeight( Size )
+
+    let ang = random(0,360)
+    rotate(ang)
+    for(let j = 0 , Fix=-30; j < random(1, 100); j++){
+        ellipse( Fix+i*3, Fix+i*3, j * i *0.1, j * i * 0.1 );
+    }
+  }
 }
