@@ -3,8 +3,9 @@ var Scale = 4;
 var Count = 230;
 var flag = false;
 var Total = 20;
-var Total_mid_circlr =5;
+var Total_mid_circle =5;
 var Span = 6;
+var circleList = []
 
 function setup() {
   createCanvas(800, 800);
@@ -12,6 +13,10 @@ function setup() {
   colorMode(HSB);
   shearX(60);
   translate(width/2,height/2);
+  
+  for( let i=0;i<Total_mid_circle ; i++){
+    circleList.push( random(15,30) );
+  }
 }
   
 function draw() {
@@ -33,8 +38,10 @@ function draw() {
   line(0, -height/2, 0, height/2);
   
   // middle circle
+  noFill();
+  strokeWeight(1);
   for(let i=0;i<Total_mid_circle;i++){
-    circle()
+    circle( 0 ,sin(i*10+frameCount*2)*20 ,circleList[i] );
   }
   
   strokeWeight(1);
