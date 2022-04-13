@@ -3,7 +3,7 @@ var Scale = 4;
 var Count = 230;
 var flag = false;
 var Total = 20;
-var Total_mid_circle =15;
+var Total_mid_circle =5;
 var Span = 6;
 var circleList = []
 
@@ -39,9 +39,10 @@ function draw() {
   
   // middle circle
   noFill();
-  strokeWeight(1);
+  
   for(let i=0;i<Total_mid_circle;i++){
-    circle( 0 ,sin(i*15+frameCount*5)*20 ,circleList[i] );
+    strokeWeight( map(noise(frameCount/50,i*20),0,1,1,3) );
+    circle( 0 ,sin(i*30+frameCount*2)*10 ,circleList[i]*map(noise(i/5,frameCount/50),0,1,0.8,1.2) );
   }
   
   strokeWeight(1);
