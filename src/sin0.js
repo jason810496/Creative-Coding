@@ -3,7 +3,7 @@ var Scale = 4;
 var Count = 230;
 var flag = false;
 var Total = 20;
-var Total_mid_circle =5;
+var Total_mid_circle =15;
 var Span = 6;
 var circleList = []
 
@@ -41,7 +41,7 @@ function draw() {
   noFill();
   strokeWeight(1);
   for(let i=0;i<Total_mid_circle;i++){
-    circle( 0 ,sin(i*10+frameCount*2)*20 ,circleList[i] );
+    circle( 0 ,sin(i*15+frameCount*5)*20 ,circleList[i] );
   }
   
   strokeWeight(1);
