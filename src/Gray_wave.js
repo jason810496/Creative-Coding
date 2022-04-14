@@ -23,17 +23,6 @@ function setup(){
   
 function draw(){
     
-    // for(let y=200;y< height ; y+=SpanY){
-    //     let shiftX = (noise( y/10 ,y/10)-0.5 )*Shift
-    //     for( let i=0;i<width+Shift ; i+= SpanX){
-        
-        
-    //     fill( map(random(0,1) ,0,1 ,0,255 ) );
-    //     // rect(i,0,Span,height/2);
-    //     let Size = random(5,10);
-    //     ellipse(i+shiftX ,sin(i/50+frameCount/5)*20 + y + Shift, Size ,Size );
-    //     }
-    // }
     background(0);
     DotList.forEach(ele => {
         fill(ele.clr);
