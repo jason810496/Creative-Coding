@@ -4,10 +4,16 @@ var LineColorList= "2d00f7-6a00f4-8900f2-a100f2-b100e8-bc00dd-d100d1-db00b6-e500
 // var LineColorList = ['red' , 'green' , 'blue']
 var LineList = []
 
+var min_sz
+
+var ScaleVar
 
 function setup() {
     frameRate(24);
-    createCanvas(800, 800);
+    createCanvas( windowWidth , windowHeight );
+	  min_sz = min( windowWidth , windowHeight )
+		ScaleVar = min_sz/800
+	
     background(0);
     let SpanX = 5 ;
     let SpanY = 10;
@@ -65,12 +71,12 @@ function draw(){
 
 function CreateStation( ith ){
     return{
-        x : width/2+random(250,350)*cos(ith),
-        y : height/2+random(250,350)*sin(ith),
+        x : width/2+random(250*ScaleVar,350*ScaleVar)*cos(ith),
+        y : height/2+random(250*ScaleVar,350*ScaleVar)*sin(ith),
         cur_x:0,
         cur_y:0,
         clr : color( random(180,255)),
-        sz : random(10,25)
+        sz : random(10*ScaleVar,25*ScaleVar)
     };
 }
 
