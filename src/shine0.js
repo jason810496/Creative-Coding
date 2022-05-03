@@ -7,8 +7,8 @@ var List = [];
 var n=0;
 var pos = [ [0,1] , [0,-1] , [1,0] ];
 var LineList = [];
-var Change_Speed = 20;
-var ColorRange = 50;
+var Change_Speed = 30;
+var ColorRange = 55;
 
 function setup() {
     // createCanvas(400, 400);
