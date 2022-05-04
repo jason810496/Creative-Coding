@@ -36,21 +36,21 @@ function CreateMountain(){
 
 function Mountain( ith ){
     noStroke();
-    fill(0,0,random(100,30) );
+    fill(0,0,map(ith,0,5,100,0) );
     beginShape();
 
-        let Base =  BaseHeight*(1+ith)*0.65; 
+        let Base =  BaseHeight*(2.5+ith)*0.5; 
         let LastX = 0 ;
         let LastY = height -map( noise(LastX,ith*100 ,ith*ith*10 ) ,0,1,0,200) - Base;
         let curSpan = span*ScaleRate*(ith+3);
-        for(let x=curSpan ; x<=width+50 ; x+= curSpan ){
+        for(let x=curSpan ; x<=width+100 ; x+= curSpan ){
             
             // vertex(LastX,LastY );
 
             let y1 = LastY ;
             let y2 = height -map( noise(x,ith*100 ,ith*ith*10 ) ,0,1,0,200) - Base;
             let slope = (y2-y1)/curSpan ;
-            for( let j=LastX ; j<= x ;j+=7){
+            for( let j=LastX ; j<= x ;j+=map(ith,0,5,10,3)){
                 vertex(j,height - LastY - slope*(j-LastX) - map( noise(j,ith*100 ,ith*ith*10 ) ,0,1,0,20));
             }
 
