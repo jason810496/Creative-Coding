@@ -6,9 +6,8 @@ var BaseHeight = 0;
 
 var ColorMountainList = "0b2c24-0f392b-134632-185339-00115E-002254-00334A".split("-").map(a=>"#"+a);
 var COlorBackgroundList = "ffb5a7-fcd5ce-f8edeb-f9dcc4-fec89a".split("-").map(a=>"#"+a);
-// var ColorList = "ffbe0b-fb5607-ff006e-8338ec-3a86ff".split("-").map(a=>"#"+a);
+
 var Color_Mountain ;
-var COlor_BG;
 
 function setup() {
     
