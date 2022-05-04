@@ -4,10 +4,9 @@ var span = 10;
 var N = 5;
 var BaseHeight = 0;
 
-var ColorMountainList = "0b2c24-0f392b-134632-185339-00115E-002254-00334A".split("-").map(a=>"#"+a);
-// var COlorBackgroundList = "ff7b00-ff8800-ff9500-ffa200-ffaa00-ffb700-ffc300-ffd000-ffdd00-ffea00".split("-").map(a=>"#"+a);
+var  ColorBackgroundList= "0b2c24-0f392b-00115E-002254-00334A".split("-").map(a=>"#"+a);
 
-var COlorBackgroundList="e85d04-f48c06-faa307-ffba08".split("-").map(a=>"#"+a);
+var ColorMountainList="e85d04-f48c06-faa307-ffba08".split("-").map(a=>"#"+a);
 
 var Color_Mountain ;
 var Color_BG;
@@ -20,7 +19,7 @@ function setup() {
 
     BaseHeight = height / N;
     Color_Mountain = random( ColorMountainList );
-    Color_BG = random(COlorBackgroundList) ;
+    Color_BG = random(ColorBackgroundList) ;
 }
 
 
