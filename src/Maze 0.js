@@ -27,27 +27,35 @@ function setup() {
 
     Node1 = { x:0,y:0,d:0};
     let v= random( pos );
-    Node2 = { x:v[0],y:v[1],d:1};
+    Node2 = { x:v[0]*span,
+        y:v[1]*span,
+        d:1};
 }
 
 function draw() {
     if( Node2.depth >= 10 ){
         Node1 = { x:0,y:0,d:0};
         let v= random( pos );
-        Node2 = { x:v[0],y:v[1],d:1};
+        Node2 = { x:v[0]*span,
+                y:v[1]*span,
+                d:1};
     }
     background(clr);
+    push();
+        
+        traslate( width/2 , height/2 );
+        strokeWeight(5);
+        stroke(255);
+        line( Node1.x , Node1.x , Node2.x ,Node2.y );
 
-    strokeWeight(5);
-    stroke(255);
-    line( Node1.x , Node1.x , Node2.x ,Node2.y );
+        Node1 = Node2;
 
-    Node1 = Node2;
+        Node2.depth++;
+        let v= random( pos );
+        Node2.x += v[0]*span;
+        Node2.y += v[1]*span;
 
-    Node2.depth++;
-    let v= random( pos );
-    Node2.x += v[0];
-    Node2.y += v[1];
+    pop();
 }
 
 function DFS(posX , posY ,depth){
