@@ -1,13 +1,13 @@
 var OrigSize = 800; 
 var pos = [ [0,1],  [1,0] , [0,-1] ,[-1,0] ,[1,1],[1,-1],[-1,1],[-1,-1] ];
-var span = 10;
+var span = 25;
 var ColorList = "f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0".split("-").map(a=>"#"+a);
 
 var BG_clr;
 var step=0;
-var Limit = 20;
+var Limit = 30;
 var List = []
-var N = 10;
+var N = 20;
 var XX=0; 
 var YY=0;
 
@@ -17,9 +17,9 @@ function setup() {
     background(0);
 
     BG_clr = color(0);
-    BG_clr.setAlpha(30);
+    BG_clr.setAlpha(10);
 
-    frameRate(25);
+    frameRate(20);
     
     for( let i=0 ; i<N;i++){
         let v= random( pos );
@@ -31,7 +31,7 @@ function setup() {
            x2:v[0]*span,
            y2:v[1]*span,
            clr:clr,
-           wt:random(3,5)
+           wt:random(5,8)
         });
     }
 
@@ -62,7 +62,7 @@ function draw() {
         });
     }
 
-    // background(BG_clr);
+    background(BG_clr);
     push();
         
         
