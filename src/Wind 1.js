@@ -1,6 +1,7 @@
 var OrigSize = 800; 
 var Delta = 50;
 var List = []
+var ColorList = "f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0".split("-").map(a=>"#"+a);
 
 function setup() {
     createCanvas(OrigSize, OrigSize);
@@ -13,11 +14,11 @@ function setup() {
         let temp = []
         for(let j=0;j<n;j++){
             let cur = deg*j;
-            let clr=color(255);
-            clr.setAlpha( random(100,240) );
+            let clr=color( random(ColorList) );
+            // clr.setAlpha( random(150,220) );
             temp.push({
                 deg:cur,
-                r: random(10,15),
+                r: random(5,10),
                 clr:clr
             });
         }
@@ -51,7 +52,7 @@ function Recursion( posY , R, deg , cnt , ith ){
             noStroke();
             List[ ith ].forEach(ele => {
                 fill( ele.clr )
-                circle( cos(ele.deg + frameCount*2 )*R*1.05 , sin(ele.deg + frameCount*2 )*R*1.15 , ele.r+noise(frameCount,10)*5 );
+                circle( cos(ele.deg + frameCount*2 )*R*1.05 , sin(ele.deg + frameCount*2 )*R*1.15 , ele.r+noise(frameCount/100,cnt*5)*10 );
             });
             ith++;
         }
