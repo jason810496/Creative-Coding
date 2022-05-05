@@ -7,21 +7,16 @@ function setup() {
 
     angleMode(DEGREES);
 
-    
-
-    noFill();
-    stroke(255)
-
 }
 
 function draw() {
     background(200);
 
     let deg = noise(frameCount/100 ,10 )*(-50);
-    Recursion(700,10 , deg );
+    Recursion(700,10 , deg ,1);
 }
 
-function Recursion( posY , R, deg){
+function Recursion( posY , R, deg , cnt){
 
     if( posY < 200 ) return ;
     
@@ -30,10 +25,13 @@ function Recursion( posY , R, deg){
         rotate( deg ); // [ -50 , 0]
         shearX(60);
         
-        strokeWeight( random(2,4) );
+        noFill();
+        stroke(255)
+        strokeWeight( (noise(cnt*5,frameCount/10)+0.1)*5 );
         circle(0,0,R);
+
     pop();
 
-    Recursion(posY -20 , R*1.16 ,deg)
+    Recursion(posY -20*(cnt/15) , R*1.16 ,deg ,cnt+1)
 }
 
