@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-    background(200);
+    background(150);
 
     let deg = noise(frameCount/100 ,10 )*(-50);
     Recursion(700,10 , deg ,1);
