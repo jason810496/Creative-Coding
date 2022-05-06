@@ -12,7 +12,7 @@ function setup() {
 
     // scale( scaleRate , scaleRate );
 
-    R = random(50,100);
+    R = random(80,100);
 
     clr = color(255);
     clr.setAlpha( random(200,240) );
@@ -30,16 +30,31 @@ function draw() {
 
 //     translate( width/2 , height/2) ;
 //     Bubble();
-    WaveLine(100,200,300,400);
+    // WaveLine(100,200,300,400);
+    translate(width/2 , height/2);
+    Bubble();
 }
 
 function Bubble(){
 
     beginShape();
-        for(let i=0 ; i<360 ;i+=40){
-            let x = R*cos(i) , y=R*sin(i);
+        let d = 10;
+        let ang = 360/ d; 
 
-            vertex(x + noise(100,frameCount/10)*10 , y + noise( frameCount/100 ,100 )*20 );
+        let x1=R*cos(0) ;
+        let y1=R*sin(0);
+        // for(let i=1;i<=d;i++){
+        //     let x2 = R*cos(i*ang) , y2 = R*sin(i*ang);
+        //     WaveLine(x1,y1,x2,y2);
+        //     x1=x2;
+        //     y1=y2;
+        // }
+
+        for(let i=0;i<=360;i+=30 ){
+            let x2 = R*cos(i) , y2 = R*sin(i);
+            WaveLine(x1,y1,x2,y2);
+            x1 = x2;
+            y1 = y2;
         }
     endShape();
 }
@@ -63,7 +78,7 @@ function WaveLine(x1,y1,x2,y2){
         
         beginShape();
             for(let i=0;i<dis ;i++ ){
-                vertex(i , sin( frameCount+i*5)*20);
+                vertex(i , sin( frameCount*2+i*10)*10);
             }
         endShape();
 
