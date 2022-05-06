@@ -21,10 +21,10 @@ function setup() {
         let clr = color( random( ColorList)  ) ;
         clr.setAlpha( random(150,250) ) ;
         List.push({
-            r1:R*(i+0.8),
-            r2:RR*(i+0.1),
+            r1:R*(i+0.1)*0.8,
+            r2:RR*(i+0.1)*0.8,
             clr:clr,
-            wt:random(5,10)
+            wt:(i+1)*2
         });
     }
 }
