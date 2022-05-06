@@ -12,7 +12,7 @@ function setup() {
     createCanvas(OrigSize, OrigSize);
     angleMode( DEGREES );
 
-    // scale( scaleRate , scaleRate );
+    scale( scaleRate , scaleRate );
 
     let R = random(80,100);
     let RR = dist(R*cos(SplitDeg),R*sin(SplitDeg),R*cos(SplitDeg*2),R*sin(SplitDeg*2));
@@ -35,6 +35,8 @@ function draw() {
     translate(width/2 , height/2);
 
     for( let i=N-1  ; i>=0; i--){
+
+        rotate( i*360/N );
         let ele = List[i];
         stroke( ele.clr) ;
         strokeWeight( ele.wt );
