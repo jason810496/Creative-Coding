@@ -2,6 +2,7 @@ var OrigSize = 800;
 var mn_size = 0 ;
 var scaleRate = 0;
 var R = 0;
+var RR;
 var clr ;
 
 function setup() {
@@ -13,6 +14,7 @@ function setup() {
     // scale( scaleRate , scaleRate );
 
     R = random(80,100);
+    RR = dist(R*cos(30),R*sin(30),R*cos(60),R*sin(60));
 
     clr = color(255);
     clr.setAlpha( random(200,240) );
@@ -32,6 +34,10 @@ function draw() {
 //     Bubble();
     // WaveLine(100,200,300,400);
     translate(width/2 , height/2);
+    
+    WaveLine(0,0,0,RR);
+    WaveLine(0,0,0,-RR);
+    WaveLine(0,0,-RR,0);
     Bubble();
 }
 
