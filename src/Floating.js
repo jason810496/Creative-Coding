@@ -45,16 +45,9 @@ function Bubble(){
 
     beginShape();
         let d = 10;
-        let ang = 360/ d; 
 
         let x1=R*cos(0) ;
         let y1=R*sin(0);
-        // for(let i=1;i<=d;i++){
-        //     let x2 = R*cos(i*ang) , y2 = R*sin(i*ang);
-        //     WaveLine(x1,y1,x2,y2);
-        //     x1=x2;
-        //     y1=y2;
-        // }
 
         for(let i=0;i<=360;i+=30 ){
             let x2 = R*cos(i) , y2 = R*sin(i);
@@ -66,16 +59,8 @@ function Bubble(){
 }
 
 function WaveLine(x1,y1,x2,y2){
-    // let x1 =100 , y1=100 , x2=40,y2=600;
-    // let dx = x2-x1;
-    // let dy = y2-y1;
-    // let t = dy/dx;
-    // let deg = atan(t);
-    let dis = dist(x1,y1,x2,y2);
 
-    // fill(240);
-    // circle( x1,y1,10);
-    // circle( x2,y2,20);
+    let dis = dist(x1,y1,x2,y2);
 
     noFill();
     push();
@@ -89,4 +74,11 @@ function WaveLine(x1,y1,x2,y2){
         endShape();
 
     pop();
+}
+
+function Cycle(){
+    WaveLine(0,0,0,RR);
+    WaveLine(0,0,0,-RR);
+    WaveLine(0,0,-RR,0);
+    Bubble();
 }
