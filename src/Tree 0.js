@@ -12,11 +12,11 @@ function setup() {
     background(0);
     stroke(255);
 
-    translate(  width/2 , height-100 );
+    translate(  width/2 , height-50 );
 
     // CreateTree(Len , Wt );
 
-    scale(1.5 , 1.5 );
+    scale(1.8 , 1.8 );
 
     let str  = random( RawList );
     ColorList = str.split("-").map(a=>"#"+a);
