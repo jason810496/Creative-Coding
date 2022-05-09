@@ -1,32 +1,30 @@
 var Deg = 30;
-var Len = 40;
-var Wt = 4 ;
+var Len = 0;
+var Wt = 0 ;
 var Shift = 0;
 var RandDegList = [];
 var RandLenList = [];
 var RotateScale = 10;
-var ColorList = "f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0".split("-").map(a=>"#"+a);
 
 function setup() {
     createCanvas(800, 800);
     angleMode(DEGREES);
+    colorMode( HSB ) ;
 
     background(0);
     stroke(255);
 
     translate(  width/2 , height-100 );
 
-    // CreateTree(Len , Wt );
 
-    scale(1.5 , 1.5 );
-
-    Len = 40 *random(1,1.5) ; 
+    Len = 70 *random(1,1.5) ; 
     Wt = 4* random( 1, 1.2) ;
     CreateTree2( Len, Wt , 1 );
 }
 function draw() {
     background(0);
     translate(  width/2 , height-100 );
+  
     DrawTree();
 }
 
@@ -35,8 +33,8 @@ function CreateTree( l ,w ,d , c1 , c2 ){
   
     if( d>=6 ){
       push()
-        let clr = color( ColorList[ int( map(noise(l*10,d*10,frameCount/30) ,0, 1 ,0,9) ) ] );
-        clr.setAlpha( noise(l,w)*50+50 );
+        let clr = color( noise(l*10,d*10,frameCount/80)*120 + 210 ,100 ,100 , noise(l,w)*0.5 );
+        
         noStroke();
         fill(  clr );
         circle( 0 , 0 , l);
@@ -53,11 +51,11 @@ function CreateTree( l ,w ,d , c1 , c2 ){
         translate(0,-l);
         push()
             rotate( -Deg + sin(frameCount*c1)*c2 );
-            CreateTree( l*0.8 , w*0.6 ,d+1 ,c1*1.8, c2*1.2);
+            CreateTree( l*0.8 , w*0.6 ,d+1 ,c1*1.3, c2*1.2);
         pop()
         push()
             rotate( Deg + + sin(frameCount*c1)*c2);
-            CreateTree( l*0.8 , w*0.6 ,d+1 ,c1*1. , c2*1.2);
+            CreateTree( l*0.8 , w*0.6 ,d+1 ,c1*1.3 , c2*1.2);
         pop()
 
     pop()
