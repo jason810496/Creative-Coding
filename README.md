@@ -1,6 +1,6 @@
 # Creative Coding 
 
-[中文版連結]()
+[中文版連結](https://github.com/jason810496/Creative-Coding/blob/main/doc/README_zh.md)
 
 ## My works of art
 
