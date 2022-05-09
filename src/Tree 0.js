@@ -2,8 +2,13 @@ var Deg = 30;
 var Len = 40;
 var Wt = 4 ;
 var Shift = 0;
-var ColorList = "f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0".split("-").map(a=>"#"+a);
+// var ColorList1 = "f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0".split("-").map(a=>"#"+a);
+// var ColorList2 = "22577a-38a3a5-57cc99-80ed99-c7f9cc".split("-").map(a=>"#"+a);
+// var ColorList3 = "e27396-ea9ab2-efcfe3-eaf2d7-b3dee2".split("-").map(a=>"#"+a);
+// var ColorList4 = "ff9f1c-ffbf69-ffffff-cbf3f0-2ec4b6".split("-").map(a=>"#"+a);
 
+var ColorList ;
+var RawList = ["22577a-38a3a5-57cc99-80ed99-c7f9cc","e27396-ea9ab2-efcfe3-eaf2d7-b3dee2","ff9f1c-ffbf69-ffffff-cbf3f0-2ec4b6"];
 function setup() {
     createCanvas(800, 800);
     angleMode(DEGREES);
@@ -16,7 +21,13 @@ function setup() {
     // CreateTree(Len , Wt );
 
     scale(1.5 , 1.5 );
+
+    let str  = random( RawList );
+    ColorList = str.split("-").map(a=>"#"+a);
+
     CreateTree2( Len*random(1,1.5) , Wt*random(1,1.2)  ,1 );
+
+    
 }
   
 function draw() {
