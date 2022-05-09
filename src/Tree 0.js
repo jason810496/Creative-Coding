@@ -2,6 +2,8 @@ var Deg = 30;
 var Len = 40;
 var Wt = 4 ;
 var Shift = 0;
+var ColorList = "f72585-b5179e-7209b7-560bad-480ca8-3a0ca3-3f37c9-4361ee-4895ef-4cc9f0".split("-").map(a=>"#"+a);
+
 function setup() {
     createCanvas(800, 800);
     angleMode(DEGREES);
@@ -40,10 +42,16 @@ function CreateTree( l ,w){
 }
 
 function CreateTree2( l , w ,d ){  // len , weidht , depth
-    if( l<10) return ;
+    if( d>1){
 
-    strokeWeight(w);
-    line( 0 ,0 ,0 ,-l );
+        return ;
+    }
+
+    push()
+      strokeWeight(w);
+      line( 0 ,0 ,0 ,-l );
+    pop()
+  
 
     let cnt = int( random(2,2+d) );
     let span = 2*Deg/cnt ;
@@ -53,11 +61,15 @@ function CreateTree2( l , w ,d ){  // len , weidht , depth
         for( let deg = -Deg ; deg <= Deg ; deg+=span ){
             push();
                 rotate( deg + random(-30,30) );
-                CreateTree( l*0.8*random(1,1.5) , w*0.8*random(1,1.2) , d+1 );
+                CreateTree( l*random(1,1.2) , w*random(1,1.2) , d+1 );
             pop();
         }
 
     pop()
+}
+
+function RandomTree(){
+  CreateTree2( Len*random(1,1.5) , Wt*random(1,1.2)  ,1 );
 }
 
 function TreeArray(){
