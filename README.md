@@ -4,6 +4,8 @@
 
 ## My works of art
 
+[My Openprocessing Link ](https://openprocessing.org/user/321518?view=sketches)
+
 ## The reason I start creative coding ?
 Since **elementary school** , I was interseted in **drawing** and learnt about 3 years . ( particular in realistic painting , sketch or colored pencil sketch is the majority
 
@@ -53,4 +55,30 @@ Artists show their masterpiece on the platform ( BTW , the user could see their 
 These are some reference that I learn several skill of `p5.js` from .
 
 Also share some amazing artists that I like .
+
+( most of the refence are written in ZH 
+#### Concept of Generative Art in zh :
+[concept of Generative Art ](https://blockcast.it/2021/09/03/all-you-need-to-know-about-art-blocks-nft/)
+
+#### Online editor & Document :
+
+[editor.p5js.org](https://editor.p5js.org/)
+
+[p5.js doc ](https://p5js.org/reference/)
+
+#### The most detail Creative coding turtorial series : 
+
+[creative coding course Note](https://course.creativecoding.in/)
+
+#### Useful Resources:
+[useful resources](https://creativecoding.in/resources/)
+
+[The nature of Code](https://natureofcode.com/book/)
+
+[The Coding Train](https://www.youtube.com/user/shiffman)
+
+[Building masterpiece step by step](https://creativecoding.in/category/tutorial/)
+
+#### Artist :
+[Che-Yu Wu](https://openprocessing.org/user/139364?view=sketches)
 

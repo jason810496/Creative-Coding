@@ -1,6 +1,10 @@
 # 生成式藝術創作
 
+[English version]()
+
 ## 我的作品
+
+[連結](https://openprocessing.org/user/321518?view=sketches)
 
 ## 為什麼開始創作
 其實從國小，我就對**畫畫**有興趣，也學了約3年 ？（主要是以寫實為主，素描或色鉛筆素描之類ㄉ
@@ -50,3 +54,30 @@
 這邊是我在學習、創作`p5.js`時有參考到的資料
 
 也分享一些我覺得很厲害的作品
+
+
+( 這邊分享的大多都是台灣的
+#### 生成式藝術概念:
+[生成式藝術概念](https://blockcast.it/2021/09/03/all-you-need-to-know-about-art-blocks-nft/)
+
+#### 線上編輯器＆參考 :
+
+[editor.p5js.org](https://editor.p5js.org/)
+
+[p5.js doc ](https://p5js.org/reference/)
+
+#### 最詳細的生成式藝術教學系列 : 
+
+[creative coding course Note](https://course.creativecoding.in/)
+
+#### 一些有用的資源:
+[useful resources](https://creativecoding.in/resources/)
+
+[The nature of Code](https://natureofcode.com/book/)
+
+[The Coding Train](https://www.youtube.com/user/shiffman)
+
+[Building masterpiece step by step](https://creativecoding.in/category/tutorial/)
+
+#### 藝術家 :
+[Che-Yu Wu](https://openprocessing.org/user/139364?view=sketches)
