@@ -16,7 +16,7 @@ function setup() {
 
     // CreateTree(Len , Wt );
 
-    scale(1.8 , 1.8 );
+    scale(1.5 , 1.5 );
 
     let str  = random( RawList );
     ColorList = str.split("-").map(a=>"#"+a);
