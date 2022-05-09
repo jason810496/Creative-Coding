@@ -29,9 +29,7 @@ function setup() {
 
 
 function CreateTree( l ,w){
-    if( l<10){
-      return ;
-    }
+    
   
     if( l<20 ){
       push()
@@ -41,6 +39,10 @@ function CreateTree( l ,w){
         fill(  clr );
         circle( 0 , 0 , l*random( 0.5 , 1.2 ));
       pop()
+    }
+
+    if( l<10){
+        return ;
     }
 
     strokeWeight(w);
@@ -77,19 +79,4 @@ function CreateTree2( l , w ,d ){  // len , weidht , depth
         }
 
     pop()
-}
-
-function RandomTree(){
-  CreateTree2( Len*random(1,1.5) , Wt*random(1,1.2)  ,1 );
-}
-
-function TreeArray(){
-    for(let i=100 ;i<width+Shift ; i+=200 ){
-        for(let j=150 ;j<height+Shift ; j+=200 ){
-            push();
-                translate( i , j );
-                CreateTree(Len , Wt);
-            pop();
-        }
-    }
 }
