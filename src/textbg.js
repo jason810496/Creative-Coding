@@ -21,7 +21,7 @@ function setup() {
     R_size = width / span + 1 ;
     C_size = height / span + 1;
 
-    // angleMode( DEGREES );
+    angleMode( DEGREES );
 
     stroke(255);
     strokeWeight(3);
@@ -30,8 +30,9 @@ function setup() {
 
     /* Network Ball Part */
 
-    min_sz = min( width , height );
-	ScaleVar = min_sz/800;
+    // min_sz = min( width , height );
+	// ScaleVar = min_sz/800;
+    ScaleVar= 1;
     // noStroke();
 
     // Create Station 
@@ -76,11 +77,11 @@ function CreateDot(){
             if( i%3==0 && j%3==0){
                 push();
                     translate( x, y );
-                    rotate( PI/4 );
+                    rotate(45);
                     noFill();
 
                     stroke( 90 );
-                    let cur_sz =  dot_R+ abs( 2*dot_R*sin(frameCount/100) );
+                    let cur_sz =  dot_R+ abs( 2*dot_R*sin(frameCount) );
                     rect( -cur_sz/2, -cur_sz/2 , cur_sz , cur_sz );
 
                     
@@ -133,7 +134,7 @@ function UpdateMouse(){
 
         push();
             translate( shift , height - shift );
-            rotate( -PI/2 );
+            rotate( -90 );
             text( "Y : " + mouseY+ (noise(frameCount/10)*10).toFixed(3) , 10 , -20 );
 
         pop();
