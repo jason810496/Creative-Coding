@@ -62,7 +62,7 @@ class List {
                 this.posY = this.origY;
             }
             this.posX+= 5+noise( this.posX, 100 ) ;
-            this.posY+= 3*(noise(this.posY /100 , this.posX / 100,  frameCount/100)-0.5)+ 5*(this.flag ? sin(frameCount/40):cos(frameCount/40))+ (mouseY-pmouseY);
+            this.posY+= 3*(noise(this.posY /100 , this.posX / 100,  frameCount/100)-0.5)+ 5*(this.flag ? sin(frameCount/40):cos(frameCount/40))+ (this.flag ? 0.7:-0.7)*(mouseY-pmouseY);
             this.Draw( 0 , this.posX ,this.posY );
             for( let i=0; i< this.n-1 ; i++ ){
                 this.Draw( i+1 , this.x[i] , this.y[i] );
