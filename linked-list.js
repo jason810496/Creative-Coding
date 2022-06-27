@@ -9,50 +9,47 @@ function setup() {
 
 
 function draw() {
-    translate( windowWidth/2 , windowHeight/2 );
     background(0);
     obj.Update();
 }
 
 class List {
     constructor( x,y ){
-        this.pos = {
-            x:x,
-            y:y,
-        };
-      
-        this.arr = [];
-        this.n = int(random(5,10));
+        this.n = int(random(10,15));
+        this.x = [];
+        this.y = [];
+        this.segLen = 30;
 
-        for(let i=0;i<this.n;i++){
-          this.arr.push( new Cube(i*10,0) );
+        for( let i=0;i<this.n;i++){
+            this.x.push( 0 );
+            this.y.push( 0 );
         }
     }
 
     Update(){
-      for(let i=this.n-1;i>=1;i--){
-        this.arr[i].pos = this.arr[i-1].pos;
-      }
-      let newX = noise( this.pos.x /100 , this.pos.y/100 , frameCount  );
-      let newY = noise( this.pos.x/100 , this.pos.y/100 , -frameCount );
-      this.arr[0].pos.x = newX;
-      this.arr[0].pos.y = newY;
+        stroke(200);
+        strokeWeight(10);
+        this.Draw( 0 , mouseX , mouseY );
+        for( let i=0; i< this.n-1 ; i++ ){
+            this.Draw( i+1 , this.x[i] , this.y[i] );
+        }
+    }
 
+    Draw( i ,xin ,yin){
+        const dx = xin - this.x[i];
+        const dy = yin - this.y[i];
+        const angle = atan2( dy , dx );
+        this.x[i] = xin -cos( angle )*this.segLen;
+        this.y[i] = yin -sin( angle )*this.segLen;
+        this.Segment( this.x[i] , this.y[i] , angle );
+    }
+
+    Segment( x ,y ,a ){
         push();
-        fill(200);
-      for(let i=0;i<this.n;i++){
-          this.arr[i].Update();
-
-          if( i!=this.n-1 ){
-              push();
-                stroke(200);
-                strokeWeight(10);
-                line( this.arr[i].pos.x , this.arr[i].pos.y , this.arr[i+1].pos.x , this.arr[i+1].pos.y );
-              pop();
-          }
-      }
-
-      pop();
+            translate(x,y);
+            rotate( a );
+            line( 0,0,this.segLen , 0);
+        pop();
     }
 }
 
