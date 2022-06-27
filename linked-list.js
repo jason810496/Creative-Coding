@@ -1,24 +1,37 @@
-var obj;
+var ListofList;
+var N;
 
 function setup() {
     createCanvas( windowWidth , windowHeight );
     
-    obj = new List( windowWidth/2 , windowHeight/2 );
+    ListofList = [];
+    N = random( 3,5 );
+
+    let cut = windowHeight/N;
+
+    for(let i=0;i<N;i++){
+        ListofList.push(
+            new List( random(100,windowWidth-100) ,cut + i*cut*0.7  , (i%2===0 ? true:false))
+        );
+    }
+
 }
 
 
 
 function draw() {
     background(0);
-    obj.Update();
+    ListofList.forEach(element => {
+        element.Update();
+    });
 }
 
 class List {
-    constructor( posX,posY ){
+    constructor( posX,posY,f){
         this.posX = posX;
         this.posY = posY;
         this.origY=posY;
-        this.n = int(random(10,15));
+        this.n = int(random(5,12));
         this.x = [];
         this.y = [];
         this.val = [];
@@ -26,6 +39,7 @@ class List {
         this.stroke = color(200,150);
         this.segLen = 50;
         this.textSize = 20;
+        this.flag = f;
       
         this.w = 30 ;
         this.h = 30;
@@ -33,17 +47,12 @@ class List {
         for( let i=0;i<this.n;i++){
             this.x.push( 0 );
             this.y.push( 0 );
-
-            let num = int(random(15,90));
-          
-//           console.log( num.toString() ,typeof( num.toString() ) );
-            this.val.push( num.toString() );
+            this.val.push( int(random(15,90)));
         }
     }
 
     Update(){
         push();
-        //   translate( this.posX , this.posY );
           stroke( this.stroke );
             strokeWeight( this.strokeWeight );
             // this.Draw( 0 , mouseX , mouseY );
@@ -53,7 +62,7 @@ class List {
                 this.posY = this.origY;
             }
             this.posX+= 5+noise( this.posX, 100 ) ;
-            this.posY+= 3*(noise(this.posY /100 , this.posX / 100,  frameCount/100)-0.5)+ 5*cos(frameCount/40)+ (mouseY-pmouseY);
+            this.posY+= 3*(noise(this.posY /100 , this.posX / 100,  frameCount/100)-0.5)+ 5*(this.flag ? sin(frameCount/40):cos(frameCount/40))+ (mouseY-pmouseY);
             this.Draw( 0 , this.posX ,this.posY );
             for( let i=0; i< this.n-1 ; i++ ){
                 this.Draw( i+1 , this.x[i] , this.y[i] );
@@ -91,22 +100,5 @@ class List {
                 
             pop();
         pop();
-    }
-}
-
-class Cube {
-    constructor( x,  y){
-        this.pos = {
-            x:x,
-            y:y,
-        };
-
-        this.w = 50;
-        this.h = 50;
-
-    }
-
-    Update(){
-        rect( this.x-this.w/2 , this.y-this.h/2 , this.x+this.w/2 , this.y+this.h/2 );
     }
 }
